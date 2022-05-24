@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Care Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fee schedule</th>
+      <th>Patient</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @care_plans.each do |care_plan| %>
+      <tr>
+        <td><%= care_plan.fee_schedule_id %></td>
+        <td><%= care_plan.patient_id %></td>
+        <td><%= care_plan.date %></td>
+        <td><%= care_plan.status_id %></td>
+        <td><%= link_to 'Show', care_plan %></td>
+        <td><%= link_to 'Edit', edit_care_plan_path(care_plan) %></td>
+        <td><%= link_to 'Destroy', care_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Care Plan', new_care_plan_path %>

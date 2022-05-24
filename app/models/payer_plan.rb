@@ -1,0 +1,2 @@
+class PayerPlan < ApplicationRecord
+end

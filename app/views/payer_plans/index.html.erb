@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Payer Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Payer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payer_plans.each do |payer_plan| %>
+      <tr>
+        <td><%= payer_plan.name %></td>
+        <td><%= payer_plan.payer_id %></td>
+        <td><%= link_to 'Show', payer_plan %></td>
+        <td><%= link_to 'Edit', edit_payer_plan_path(payer_plan) %></td>
+        <td><%= link_to 'Destroy', payer_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payer Plan', new_payer_plan_path %>

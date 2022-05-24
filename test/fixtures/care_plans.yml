@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fee_schedule_id: 1
+  patient_id: 1
+  date: MyString
+  status_id: 1
+
+two:
+  fee_schedule_id: 1
+  patient_id: 1
+  date: MyString
+  status_id: 1

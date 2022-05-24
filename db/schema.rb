@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_203745) do
+ActiveRecord::Schema.define(version: 2022_05_24_204116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "care_plans", force: :cascade do |t|
+    t.integer "fee_schedule_id"
+    t.integer "patient_id"
+    t.string "date"
+    t.integer "status_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fee_schedules", force: :cascade do |t|
+    t.integer "provider_id"
+    t.string "cost"
+    t.string "action"
+    t.integer "payer_plan_id"
+    t.integer "treatment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "medwallet_accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +52,26 @@ ActiveRecord::Schema.define(version: 2022_05_24_203745) do
     t.date "dob"
     t.integer "medwallet_id"
     t.integer "payer_plan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payer_plans", force: :cascade do |t|
+    t.string "name"
+    t.integer "payer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "treatment_actions", force: :cascade do |t|
+    t.string "code"
+    t.string "action"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

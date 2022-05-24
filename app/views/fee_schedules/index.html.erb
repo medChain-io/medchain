@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fee Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Provider</th>
+      <th>Cost</th>
+      <th>Action</th>
+      <th>Payer plan</th>
+      <th>Treatment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fee_schedules.each do |fee_schedule| %>
+      <tr>
+        <td><%= fee_schedule.provider_id %></td>
+        <td><%= fee_schedule.cost %></td>
+        <td><%= fee_schedule.action %></td>
+        <td><%= fee_schedule.payer_plan_id %></td>
+        <td><%= fee_schedule.treatment_id %></td>
+        <td><%= link_to 'Show', fee_schedule %></td>
+        <td><%= link_to 'Edit', edit_fee_schedule_path(fee_schedule) %></td>
+        <td><%= link_to 'Destroy', fee_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fee Schedule', new_fee_schedule_path %>
