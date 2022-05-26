@@ -9,5 +9,12 @@
 #  payer_id   :integer
 #
 class PayerPlan < ApplicationRecord
-  
+
+  belongs_to(:payer)
+
+  has_many(:fee_schedules, dependent: :destroy)
+
+  has_many(:patients, dependent: :destroy)
+
+
 end

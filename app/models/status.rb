@@ -8,4 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Status < ApplicationRecord
+  has_many(:treatments, class_name: "CarePlan", dependent: :destroy)
+  validates(:name, presence: true)
 end

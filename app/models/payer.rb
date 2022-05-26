@@ -8,4 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Payer < ApplicationRecord
+
+  has_many(:payer_plans, dependent: :destroy)
+  
 end

@@ -11,4 +11,19 @@
 #  status_id       :integer
 #
 class CarePlan < ApplicationRecord
+
+
+  belongs_to(:patient)
+
+  belongs_to(:fee_schedule)
+
+  belongs_to(:status)
+
+
+  validates(:status_id, presence: true)
+
+  validates(:date, presence: true)
+
+
+
 end

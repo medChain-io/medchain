@@ -20,4 +20,16 @@ has_many(:treatment_schedules, class_name: "CarePlan", dependent: :destroy)
 belongs_to(:payer_plan)
 
 
+
+validates(:ssn, presence: true)
+
+validates(:ssn, uniqueness: true)
+
+validates(:name, presence: true)
+
+validates(:dob, presence: true)
+
+
+
+
 end

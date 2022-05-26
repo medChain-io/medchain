@@ -9,4 +9,5 @@
 #  updated_at :datetime         not null
 #
 class Provider < ApplicationRecord
+  has_many(:fee_schedules, dependent: :destroy)
 end
