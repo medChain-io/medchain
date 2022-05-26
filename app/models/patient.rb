@@ -12,4 +12,12 @@
 #  payer_plan_id :integer
 #
 class Patient < ApplicationRecord
+
+belongs_to(:medwallet, class_name: "MedwalletAccount")
+
+has_many(:treatment_schedules, class_name: "CarePlan", dependent: :destroy)
+
+belongs_to(:payer_plan)
+
+
 end

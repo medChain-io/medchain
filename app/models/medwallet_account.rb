@@ -19,6 +19,8 @@
 class MedwalletAccount < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many(:patients, foreign_key: "medwallet_id", dependent: :destroy)
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
 end
