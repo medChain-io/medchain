@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_24_210127) do
+ActiveRecord::Schema.define(version: 2022_05_26_222403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2022_05_24_210127) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_type_id"
+    t.string "private_key"
+    t.string "public_key"
     t.index ["email"], name: "index_medwallet_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_medwallet_accounts_on_reset_password_token", unique: true
   end

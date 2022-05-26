@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :users
   resources :providers
   resources :statuses
   resources :care_plans
@@ -6,7 +8,7 @@ Rails.application.routes.draw do
   resources :payer_plans
   resources :payers
   resources :fee_schedules
-  resources :patients
+  # resources :patients, only: 
   devise_for :medwallet_accounts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
