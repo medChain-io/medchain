@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_types
   resources :users
   resources :providers
   resources :statuses

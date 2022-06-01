@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_01_170504) do
+ActiveRecord::Schema.define(version: 2022_06_01_174553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_170504) do
     t.string "specialty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "medwallet_id"
   end
 
   create_table "statuses", force: :cascade do |t|
@@ -89,6 +90,12 @@ ActiveRecord::Schema.define(version: 2022_06_01_170504) do
   create_table "treatment_actions", force: :cascade do |t|
     t.string "code"
     t.string "action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
