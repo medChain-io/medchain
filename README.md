@@ -1,24 +1,13 @@
-# README
+# medChain ReadMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* The objective of this app is to provide a platform for healthcare providers (i.e., doctors and hospitals) to share treatment plans and expected costs with patients prior to healthcare visits.
 
-Things you may want to cover:
+* Current workflow
 
-* Ruby version
+* Created the data model that includes a medwallet account associated with payers, providers, and patients
 
-* System dependencies
+* Created a sample data task to provide dummy data into the table
 
-* Configuration
+* Developed sign-in and sign-out capabilities in the application
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 
