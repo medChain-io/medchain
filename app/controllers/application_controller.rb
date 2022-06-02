@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       @user = MedwalletAccount.find_by!(id: params[:id])
       render template: "profiles/home.html.erb"
     else
-      redirect_to "/"
+      redirect_to "/", alert: "You can only access your profile page!"
     end
 
   end
