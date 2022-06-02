@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get("/", { :controller => "application", :action => "homepage" })
+
+
   resources :user_types
   resources :users
   resources :providers
