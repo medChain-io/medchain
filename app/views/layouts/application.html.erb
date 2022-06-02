@@ -34,7 +34,8 @@
                 </div>
               <% end %>
               <% if current_medwallet_account != nil %>
-                <%= button_to "User Home", user_path, id: "open-contacts-dialog-btn", class: "btn btn-outline-secondary", method: :get %>
+                <%= button_to "Sign-Out", destroy_medwallet_account_session_path, :class => "btn btn-outline-secondary" %>
+                <%= button_to "User Home", { :action => 'profile', :id => current_medwallet_account.id }, :class => "btn btn-outline-secondary" %>
               <% end %>
             </div>
           </nav>

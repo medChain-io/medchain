@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get("/", { :controller => "application", :action => "homepage" })
 
+  get("/profile/:id", { :controller => "application", :action => "profile" })
+
 
   resources :user_types
   resources :users
