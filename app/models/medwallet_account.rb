@@ -6,10 +6,12 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  private_key            :string
+#  profile_picture        :string
 #  public_key             :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  user_type_id           :integer
@@ -25,7 +27,8 @@ class MedwalletAccount < ApplicationRecord
   has_many(:patients, foreign_key: "medwallet_id", dependent: :destroy)
   has_many(:providers, foreign_key: "medwallet_id", dependent: :destroy)
   has_many(:payers, foreign_key: "medwallet_id", dependent: :destroy)
-  belongs_to(:user_types, class_name: "UserType")
+  
+  belongs_to(:user_types, class_name: "UserType", optional: true)
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
