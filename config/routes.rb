@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :medwallet_accounts
+
   get("/", { :controller => "application", :action => "homepage" })
 
   get("/profile/:id", { :controller => "application", :action => "profile" })
@@ -15,6 +17,6 @@ Rails.application.routes.draw do
   resources :payers
   resources :fee_schedules
   # resources :patients, only: 
-  devise_for :medwallet_accounts
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
