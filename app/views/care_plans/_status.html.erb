@@ -1,0 +1,9 @@
+<div id="careplan_<%=careplan.id%>_status">
+  <%= link_to care_plan_edit_status_path(careplan), remote: true do %>
+    <% if careplan.status.present? %>
+      <%= careplan.status.name %>
+    <% else %>
+      Add director
+    <% end %>
+  <% end %>
+</div>

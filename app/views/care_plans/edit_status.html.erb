@@ -1,0 +1,10 @@
+<% @patient = Patient.find_by medwallet_id: @user.id  %>
+<% @careplan = CarePlan.where patient_id: @patient.id %>
+<div id="careplan_<%=@careplan.id%>_status" >
+  <%= form_with(model: careplan, local: false) do |form| %>
+    <div class="field">
+      <%= form.label :status, for: "#careplan_1539_status" %>
+      <%= form.collection_select :status, Director.order(:id), :id, {}, onchange: 'Rails.fire(this.form, "submit")', id: "#careplan_1539_status" %>
+    </div>
+  <% end %>
+</div>

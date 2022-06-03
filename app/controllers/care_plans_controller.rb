@@ -4,7 +4,7 @@ class CarePlansController < ApplicationController
     edit 
     update 
     destroy 
-    edit_status 
+    edit_status
   ]
 
   # GET /care_plans or /care_plans.json
@@ -23,9 +23,6 @@ class CarePlansController < ApplicationController
 
   # GET /care_plans/1/edit
   def edit
-  end
-
-  def edit_status
   end
 
   # POST /care_plans or /care_plans.json
@@ -70,7 +67,7 @@ class CarePlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_care_plan
-      @care_plan = CarePlan.find(params[:id])
+      @care_plan = CarePlan.find(params[:care_plan_id])
     end
 
     # Only allow a list of trusted parameters through.

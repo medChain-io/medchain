@@ -17,15 +17,9 @@
           <td id="careplan_<%=careplan.id%>_date">
             <%= careplan.date %>
           </td>
-          <td id="careplan_<%=careplan.id%>_status">
+          <td >
             <% @status = Status.where id: careplan.status_id %>
-            <%= link_to care_plan_edit_status_path(careplan), remote: true do %>
-              <% if careplan.status.present? %>
-                <%= careplan.status.name %>
-              <% else %>
-                Add director
-              <% end %>
-            <% end %>
+            <%= render "/care_plans/status", careplan: careplan%>
           </td>
           <td id="careplan_<%=careplan.id%>_provider">
             <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
