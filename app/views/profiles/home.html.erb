@@ -20,8 +20,8 @@
       <div class="card" style="width: 18rem; mx-auto">
         <img class="card-img-top" src="<%= @user.profile_picture%>" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title"><%= @user.username %></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">Username: <%= @user.username %></h5>
+          <%= render "/profiles/overview" %>
         </div>
       </div>
     </div>
