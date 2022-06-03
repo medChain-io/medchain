@@ -3,20 +3,25 @@
     <div class = "row">
       <div class= 'col 2'>
         <nav class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Dashboard</a>
-          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Appointments</a>
-          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Medical History</a>
+          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile-home" role="tab" aria-controls="nav-profile" aria-selected="false">Home</a>
+          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile-appointments" role="tab" aria-controls="nav-profile" aria-selected="false">Appointments</a>
+          <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile-medical-history" role="tab" aria-controls="nav-profile" aria-selected="false">Medical History</a>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
+        <div class="tab-content" id="nav-profile-home">
+          <%= render "/profiles/dashboard" %>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, natus sed soluta necessitatibus tempore aspernatur? Praesentium, odit explicabo distinctio dolore adipisci officia iure, ut magnam optio aliquam at similique veritatis.</div>
+        <div class="tab-pane fade" id="nav-profile-appointments" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <%= render "/profiles/appointments" %>
+        </div>
+        <div class="tab-pane fade" id="nav-profile-medical-history" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <%= render "/profiles/medicalhistory" %>
+        </div>
       </div>
       <div class="card" style="width: 18rem; mx-auto">
         <img class="card-img-top" src="<%= @user.profile_picture%>" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><%= @user.username %></h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
     </div>

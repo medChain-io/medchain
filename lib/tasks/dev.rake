@@ -16,7 +16,7 @@ task sample_data: :environment do
 
   user_type = UserType.create(
     id: 1,
-    name: "Patient"
+    name: "Payer"
   )
   user_type = UserType.create(
     id: 2,
@@ -24,7 +24,7 @@ task sample_data: :environment do
   )
   user_type = UserType.create(
     id: 3,
-    name: "Payer"
+    name: "Patient"
   )
 
   status = Status.create(

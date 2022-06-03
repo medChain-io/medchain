@@ -1,0 +1,41 @@
+<% @patient = Patient.find_by medwallet_id: @user.id  %>
+<% @careplan = CarePlan.where patient_id: @patient.id %>
+
+<div class="table-responsive-xl">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Provider</th>
+        <th scope="col">Treatment</th>
+        <th scope="col">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @careplan.each do |careplan| %>
+        <tr>
+          <td>
+            <%= careplan.date %>
+          </td>
+          <td> 
+            <% @status = Status.where id: careplan.status_id %>
+            <%= @status.first.name %>
+          </td>
+          <td>
+            <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
+            <% @provider = Provider.find_by id: @feeschedule.provider_id %>
+            <%= @provider.name %>
+          </td>
+          <td>
+            <% @treatment = TreatmentAction.find_by id: @feeschedule.treatment_id %>
+            <%= @treatment.action %>
+          </td>
+          <td>
+            $<%= @feeschedule.cost %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
