@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   # get("/profile/:id", { :controller => "application", :action => "profile" })
   get("/profile/:id", { :controller => "application", :action => "profile", as: :profile })
 
-  get("profile/care_plans/:id/edit", { :controller => "care_plans", :action => "edit"})
+  # get("profile/care_plans/:id/edit", { :controller => "care_plans", :action => "edit"})
+  get "profile/care_plans/:id/edit" => "care_plans#edit"
 
 
   resources :user_types

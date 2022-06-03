@@ -14,24 +14,23 @@
     <tbody>
       <% @careplan.each do |careplan| %>
         <tr>
-          <td id="careplan_<%=careplan.id%>_date">
+          <td id="<%= dom_id(careplan)%>_date">
             <%= careplan.date %>
           </td>
-          <td id="careplan_<%=careplan.id%>_status">
+          <td id="<%= dom_id(careplan)%>_status">
             <% @status = Status.where care_plan_id: careplan.status_id %>
-            <%= link_to careplan.status.name, "care_plans/" + careplan.id.to_s + "/edit", remote: true %>
+            <%= link_to careplan.status.name, edit_care_plan_path(careplan), remote: true %>
         </td>
-        <td id="careplan_<%=careplan.id%>_provider">
-          <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
-          <% @provider = Provider.find_by id: @feeschedule.provider_id %>
+        <td id="<%= dom_id(careplan)%>_provider">
+          <% @feeschedule = careplan.fee_schedule %>
+          <% @provider = @feeschedule.provider %>
           <%= @provider.name %>
         </td>
-        <td id="careplan_<%=careplan.id%>_action">
-          <% @treatment = TreatmentAction.find_by id: @feeschedule.treatment_id %>
+        <td id="<%= dom_id(careplan)%>_action">
+          <% @treatment = @feeschedule.treatment %>
           <%= @treatment.action %>
         </td>
-        <td id="careplan_<%=careplan.id%>_cost">
-          $<%= @feeschedule.cost %>
+        <td id="<%= dom_id(careplan)%>_cost">
         </td>
       </tr>
     <% end %>
