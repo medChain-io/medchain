@@ -1,4 +1,4 @@
 console.log("<%= dom_id(@care_plan)%>_status");
 
-$("<%= dom_id(@care_plan)%>_status").replaceWith("<%= j(render('care_plans/forms/status', careplan: @care_plan)) %>");
+$("#<%= dom_id(@care_plan)%>_status").replaceWith("<%= j(render('care_plans/forms/status', careplan: @care_plan)) %>");
 
