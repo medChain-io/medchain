@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   resources :users
   resources :providers
   resources :statuses
-  resources :care_plans
+  resources :care_plans do
+    get "status/edit" => "care_plans#edit_status", as: :edit_status
+  end
   resources :treatment_actions
   resources :payer_plans
   resources :payers
   resources :fee_schedules
   # resources :patients, only: 
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

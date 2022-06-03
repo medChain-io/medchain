@@ -1,6 +1,5 @@
 <% @patient = Patient.find_by medwallet_id: @user.id  %>
 <% @careplan = CarePlan.where patient_id: @patient.id %>
-
 <div class="table-responsive-xl">
   <table class="table">
     <thead>
@@ -15,23 +14,29 @@
     <tbody>
       <% @careplan.each do |careplan| %>
         <tr>
-          <td>
+          <td id="careplan_<%=careplan.id%>_date">
             <%= careplan.date %>
           </td>
-          <td> 
+          <td id="careplan_<%=careplan.id%>_status">
             <% @status = Status.where id: careplan.status_id %>
-            <%= @status.first.name %>
+            <%= link_to care_plan_edit_status_path(careplan), remote: true do %>
+              <% if careplan.status.present? %>
+                <%= careplan.status.name %>
+              <% else %>
+                Add director
+              <% end %>
+            <% end %>
           </td>
-          <td>
+          <td id="careplan_<%=careplan.id%>_provider">
             <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
             <% @provider = Provider.find_by id: @feeschedule.provider_id %>
             <%= @provider.name %>
           </td>
-          <td>
+          <td id="careplan_<%=careplan.id%>_action">
             <% @treatment = TreatmentAction.find_by id: @feeschedule.treatment_id %>
             <%= @treatment.action %>
           </td>
-          <td>
+          <td id="careplan_<%=careplan.id%>_cost">
             $<%= @feeschedule.cost %>
           </td>
         </tr>
