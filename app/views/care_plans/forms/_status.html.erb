@@ -1,8 +1,8 @@
-<div id="<%= dom_id(@care_plan) %>_status">
+<div id="<%= dom_id(careplan) %>_status">
   <%= form_with(model: careplan, local: false) do |form| %>
     <div class="field">
-      <%= form.label :status, for: "#{dom_id(@care_plan)}_status" %>
-      <%= form.collection_select :status, Status.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")', id: "#{dom_id(@care_plan)}_status" %>
+      <%= form.label :status, for: "#{dom_id(careplan)}_status" %>
+      <%= form.collection_select :status, Status.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")', id: "#{dom_id(careplan)}_status" %>
     </div>
   <% end %>
 </div>
