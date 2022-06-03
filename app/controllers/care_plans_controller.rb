@@ -23,9 +23,15 @@ class CarePlansController < ApplicationController
 
   # GET /care_plans/1/edit
   def edit
+    respond_to do |format|
+      format.js 
+    end
   end
 
   def edit_status
+    respond_to do |format|
+      format.js 
+    end
   end
 
   # POST /care_plans or /care_plans.json
