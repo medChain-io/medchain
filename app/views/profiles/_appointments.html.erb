@@ -19,28 +19,22 @@
           </td>
           <td id="careplan_<%=careplan.id%>_status">
             <% @status = Status.where id: careplan.status_id %>
-            <%= link_to care_plan_edit_status_path(careplan), remote: true do %>
-              <% if careplan.status.present? %>
-                <%= careplan.status.name %>
-              <% else %>
-                Add director
-              <% end %>
-            <% end %>
-          </td>
-          <td id="careplan_<%=careplan.id%>_provider">
-            <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
-            <% @provider = Provider.find_by id: @feeschedule.provider_id %>
-            <%= @provider.name %>
-          </td>
-          <td id="careplan_<%=careplan.id%>_action">
-            <% @treatment = TreatmentAction.find_by id: @feeschedule.treatment_id %>
-            <%= @treatment.action %>
-          </td>
-          <td id="careplan_<%=careplan.id%>_cost">
-            $<%= @feeschedule.cost %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            <%= link_to careplan.status.name, "care_plans/" + careplan.status_id.to_s + "/edit", remote: true %>
+        </td>
+        <td id="careplan_<%=careplan.id%>_provider">
+          <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>
+          <% @provider = Provider.find_by id: @feeschedule.provider_id %>
+          <%= @provider.name %>
+        </td>
+        <td id="careplan_<%=careplan.id%>_action">
+          <% @treatment = TreatmentAction.find_by id: @feeschedule.treatment_id %>
+          <%= @treatment.action %>
+        </td>
+        <td id="careplan_<%=careplan.id%>_cost">
+          $<%= @feeschedule.cost %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 </div>

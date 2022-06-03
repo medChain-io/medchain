@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get("/profile/:id", { :controller => "application", :action => "profile" })
 
+  get("profile/care_plans/:id/edit", { :controller => "care_plans", :action => "edit"})
+
 
   resources :user_types
   resources :users
