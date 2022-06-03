@@ -10,9 +10,96 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_06_01_175149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "care_plans", force: :cascade do |t|
+    t.integer "fee_schedule_id"
+    t.integer "patient_id"
+    t.string "date"
+    t.integer "status_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "fee_schedules", force: :cascade do |t|
+    t.integer "provider_id"
+    t.string "cost"
+    t.string "action"
+    t.integer "payer_plan_id"
+    t.integer "treatment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "medwallet_accounts", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_type_id"
+    t.string "private_key"
+    t.string "public_key"
+    t.string "profile_picture"
+    t.string "username"
+    t.index ["email"], name: "index_medwallet_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_medwallet_accounts_on_reset_password_token", unique: true
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.string "ssn"
+    t.date "dob"
+    t.integer "medwallet_id"
+    t.integer "payer_plan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payer_plans", force: :cascade do |t|
+    t.string "name"
+    t.integer "payer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "medwallet_id"
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.string "name"
+    t.string "specialty"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "medwallet_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "treatment_actions", force: :cascade do |t|
+    t.string "code"
+    t.string "action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

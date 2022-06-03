@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @payer_plan.name %>
+</p>
+
+<p>
+  <strong>Payer:</strong>
+  <%= @payer_plan.payer_id %>
+</p>
+
+<%= link_to 'Edit', edit_payer_plan_path(@payer_plan) %> |
+<%= link_to 'Back', payer_plans_path %>

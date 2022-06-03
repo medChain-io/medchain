@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @fee_schedule.provider_id %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @fee_schedule.cost %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @fee_schedule.action %>
+</p>
+
+<p>
+  <strong>Payer plan:</strong>
+  <%= @fee_schedule.payer_plan_id %>
+</p>
+
+<p>
+  <strong>Treatment:</strong>
+  <%= @fee_schedule.treatment_id %>
+</p>
+
+<%= link_to 'Edit', edit_fee_schedule_path(@fee_schedule) %> |
+<%= link_to 'Back', fee_schedules_path %>

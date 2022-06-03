@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: care_plans
+#
+#  id              :bigint           not null, primary key
+#  date            :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  fee_schedule_id :integer
+#  patient_id      :integer
+#  status_id       :integer
+#
+
+one:
+  fee_schedule_id: 1
+  patient_id: 1
+  date: MyString
+  status_id: 1
+
+two:
+  fee_schedule_id: 1
+  patient_id: 1
+  date: MyString
+  status_id: 1
