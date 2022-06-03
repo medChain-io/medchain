@@ -76,7 +76,7 @@ class CarePlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_care_plan
-      @care_plan = CarePlan.find(params[:id])
+      @care_plan = CarePlan.find(params[:care_plan_id])
     end
 
     # Only allow a list of trusted parameters through.
