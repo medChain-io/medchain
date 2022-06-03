@@ -19,7 +19,7 @@
           </td>
           <td id="<%= dom_id(careplan)%>_status">
             <% @status = Status.where care_plan_id: careplan.status_id %>
-            <%= link_to careplan.status.name, edit_care_plan_path(careplan), remote: true %>
+            <%= link_to careplan.status.name, care_plan_edit_status_path(careplan), remote: true %>
         </td>
         <td id="<%= dom_id(careplan)%>_provider">
           <% @feeschedule = careplan.fee_schedule %>
@@ -31,6 +31,7 @@
           <%= @treatment.action %>
         </td>
         <td id="<%= dom_id(careplan)%>_cost">
+          $<%= @feeschedule.cost %>
         </td>
       </tr>
     <% end %>
