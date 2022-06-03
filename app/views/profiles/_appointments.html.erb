@@ -18,8 +18,8 @@
             <%= careplan.date %>
           </td>
           <td id="careplan_<%=careplan.id%>_status">
-            <% @status = Status.where id: careplan.status_id %>
-            <%= link_to careplan.status.name, "care_plans/" + careplan.status_id.to_s + "/edit", remote: true %>
+            <% @status = Status.where care_plan_id: careplan.status_id %>
+            <%= link_to careplan.status.name, "care_plans/" + careplan.id.to_s + "/edit", remote: true %>
         </td>
         <td id="careplan_<%=careplan.id%>_provider">
           <% @feeschedule = FeeSchedule.find_by id: careplan.fee_schedule_id %>

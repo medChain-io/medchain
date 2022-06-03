@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   get("/", { :controller => "application", :action => "homepage" })
 
-  get("/profile/:id", { :controller => "application", :action => "profile" })
+  # get("/profile/:id", { :controller => "application", :action => "profile" })
+  get("/profile/:id", { :controller => "application", :action => "profile", as: :profile })
 
   get("profile/care_plans/:id/edit", { :controller => "care_plans", :action => "edit"})
 
