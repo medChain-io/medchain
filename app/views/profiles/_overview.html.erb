@@ -1,0 +1,6 @@
+<% @patient = Patient.find_by medwallet_id: @user.id %>
+Patient Name: <%= @patient.name %>
+<br>
+DOB: <%= @patient.dob %>
+<br>
+SSN: <%= @patient.ssn %>

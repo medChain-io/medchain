@@ -1,5 +1,11 @@
 class CarePlansController < ApplicationController
-  before_action :set_care_plan, only: %i[ show edit update destroy ]
+  before_action :set_care_plan, only: %i[ 
+    show 
+    edit 
+    update 
+    destroy 
+    edit_status 
+  ]
 
   # GET /care_plans or /care_plans.json
   def index
@@ -17,6 +23,15 @@ class CarePlansController < ApplicationController
 
   # GET /care_plans/1/edit
   def edit
+    respond_to do |format|
+      format.js 
+    end
+  end
+
+  def edit_status
+    respond_to do |format|
+      format.js 
+    end
   end
 
   # POST /care_plans or /care_plans.json
@@ -40,6 +55,7 @@ class CarePlansController < ApplicationController
       if @care_plan.update(care_plan_params)
         format.html { redirect_to care_plan_url(@care_plan), notice: "Care plan was successfully updated." }
         format.json { render :show, status: :ok, location: @care_plan }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @care_plan.errors, status: :unprocessable_entity }
@@ -60,7 +76,7 @@ class CarePlansController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_care_plan
-      @care_plan = CarePlan.find(params[:id])
+      @care_plan = CarePlan.find(params[:care_plan_id])
     end
 
     # Only allow a list of trusted parameters through.

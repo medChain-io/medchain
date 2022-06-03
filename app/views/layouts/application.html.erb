@@ -9,10 +9,24 @@
     <!-- Connect Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <!-- Connect Bootstrap JavaScript and its dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Connect Font Awesome -->
+   
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+    <%#= stylesheet_link_tag 'application', media: 'all' %>
+    <%#= javascript_pack_tag 'application' %>
+    <!-- <script
+			  src="https://code.jquery.com/jquery-3.6.0.js"
+			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			  crossorigin="anonymous"></script> -->
     <!-- Make it responsive to small screens -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <div class="container-fluid">
@@ -20,7 +34,6 @@
         <div class = "container ms-auto" >
           <div class="col" style="margin-top:10px">
             <a href = '/' ><img src="Full Logo.svg" alt="medChain", height = 40  /> </a>
-            
           </div>
           <div class="col">
           </div>
@@ -36,7 +49,8 @@
               <% end %>
               <% if current_medwallet_account != nil %>
                 <%= button_to "Sign-Out", destroy_medwallet_account_session_path, :class => "btn btn-outline-warning", method: :delete %>
-                <%= button_to "User Home", { :action => 'profile', :id => current_medwallet_account.id }, :class => "btn btn-outline-success", method: :get %>
+                <%= link_to "User Home", profile_path(current_medwallet_account), :class => "btn btn-outline-success" %>
+                <%#= button_to "User Home", { :action => 'profile', :id => current_medwallet_account.id }, :class => "btn btn-outline-success", method: :get %>
               <% end %>
             </div>
           </nav>
